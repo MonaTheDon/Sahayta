@@ -12,6 +12,16 @@ The solution approach can be summarized as follows:
 
 3. **AI-driven Decision Support:** AI techniques are applied for data analysis and decision support, including semantic segmentation of satellite imagery,and optimization of resource allocation. These algorithms provide actionable insights to emergency responders and relief agencies, aiding in strategic planning and response coordination.
 
+## Results
+# Victim Detection 
+results in detectFloodVictims/runs/detect/train
+![val_batch0_labels](https://github.com/MonaTheDon/Sahayta/assets/104318895/580296fc-d254-48a8-ba34-1fafa5567278)
+![confusion_matrix](https://github.com/MonaTheDon/Sahayta/assets/104318895/7fb73624-fa59-4dd5-8d81-52b474f2d32f)
+
+# Flood Segmenation
+![output_flood_segmentation](https://github.com/MonaTheDon/Sahayta/assets/104318895/d7977e64-f08f-48f5-9788-05c75e61388a)
+
+
 ## Getting Started
 To use the disaster relief and response solution, follow these steps:
 
@@ -20,8 +30,6 @@ To use the disaster relief and response solution, follow these steps:
 3. Set up the environment and configure the solution parameters according to your requirements.
 4. Run the provided scripts and modules to execute the solution components, analyze data, and generate insights.
 
-## Contributing
-Contributions to the project are welcome! If you have suggestions for improvements, bug fixes, or new features, feel free to submit a pull request or open an issue on the GitHub repository.
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
