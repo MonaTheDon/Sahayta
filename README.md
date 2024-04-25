@@ -6,11 +6,21 @@ This repository contains the codebase and documentation for a disaster relief an
 ## Solution Approach
 The solution approach can be summarized as follows:
 
-1. **Satellite Imagery Analysis:** The solution utilizes satellite imagery, particularly Synthetic Aperture Radar (SAR) data, for early detection and assessment of disasters. Machine learning algorithms are employed for flood segmentation and wildfire detection, enabling rapid identification of disaster-affected areas.
+1. **Detect WildFires in Early stages from Satellite Images** The solution utilizes satellite imagery, particularly NOAA-20 satellites called VIIRS, for detection of Wildfires in early stages so that Disaster Relief teams can be sent the information before, expeding Disaster Relief.
 
-2. **Drone-Based Victim Detection:** Drones equipped with high-resolution cameras are deployed for aerial imagery capture and victim detection in disaster-affected areas. Computer vision algorithms analyze drone imagery to identify and localize individuals in need of assistance, facilitating swift search and rescue operations.
+2. **Drone-Based Victim Detection in Floods:** Drones equipped with high-resolution cameras are deployed for aerial imagery capture and victim detection in disaster-affected areas. Computer vision algorithms like YOLOv8 analyze drone imagery to identify and localize individuals in need of assistance, facilitating swift search and rescue operations.
 
-3. **AI-driven Decision Support:** AI techniques are applied for data analysis and decision support, including semantic segmentation of satellite imagery,and optimization of resource allocation. These algorithms provide actionable insights to emergency responders and relief agencies, aiding in strategic planning and response coordination.
+3. **Flood Detection and segmentation from Satellite Imagery** AI techniques are applied for data analysis and decision support, including semantic segmentation of satellite imagery,and optimization of resource allocation. These algorithms provide actionable insights to emergency responders and relief agencies, aiding in strategic planning and response coordination.
+
+## Results
+# Victim Detection 
+results in detectFloodVictims/runs/detect/train
+![val_batch0_labels](https://github.com/MonaTheDon/Sahayta/assets/104318895/580296fc-d254-48a8-ba34-1fafa5567278)
+![confusion_matrix](https://github.com/MonaTheDon/Sahayta/assets/104318895/7fb73624-fa59-4dd5-8d81-52b474f2d32f)
+
+# Flood Segmenation
+![output_flood_segmentation](https://github.com/MonaTheDon/Sahayta/assets/104318895/d7977e64-f08f-48f5-9788-05c75e61388a)
+
 
 ## Getting Started
 To use the disaster relief and response solution, follow these steps:
@@ -20,8 +30,6 @@ To use the disaster relief and response solution, follow these steps:
 3. Set up the environment and configure the solution parameters according to your requirements.
 4. Run the provided scripts and modules to execute the solution components, analyze data, and generate insights.
 
-## Contributing
-Contributions to the project are welcome! If you have suggestions for improvements, bug fixes, or new features, feel free to submit a pull request or open an issue on the GitHub repository.
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
