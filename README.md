@@ -27,8 +27,14 @@ To use the disaster relief and response solution, follow these steps:
 
 1. Clone the repository to your local machine: `git clone https://github.com/your-username/disaster-relief-solution.git`
 2. Install the necessary dependencies and libraries as specified in the documentation.
-3. Set up the environment and configure the solution parameters according to your requirements.
-4. Run the provided scripts and modules to execute the solution components, analyze data, and generate insights.
+3. Install requirements for streamlit app
+`pip install -r requirements.txt`
+4. Set up the environment and configure the solution parameters according to your requirements.
+5. Get Your ROBOFLOW_API_KEY from https://universe.roboflow.com/
+6. To Check results for Victim Detection in Floods
+` streamlit run app.py`
+7. To check Results for Flood Detection and Segmentation and Wildfire detection, Run the provided scripts and modules to execute the solution components, analyze data, and generate insights.
+8. Output images from Flood Segmentation model training is saved in `./Flood_mapping` 
 
 
 ## License
