@@ -1,20 +1,55 @@
 import streamlit as st
-from streamlit_card import card
 import base64
+from inference_sdk import InferenceHTTPClient
+from PIL import Image, ImageDraw
 
-st.set_page_config(page_title="Sahayta", page_icon="")
+def detectVictim(api_key, image):
+    try:
+        CLIENT = InferenceHTTPClient(
+            api_url="https://detect.roboflow.com",
+            api_key=api_key
+        )
+        result = CLIENT.infer(image, model_id="yolo-floods-relief/1")
+        if 'predictions' in result:
+            return result['predictions']
+        else:
+            st.error("Failed to get predictions from the model.")
+            return None
+    except Exception as e:
+        if "403 Client Error: Forbidden" in str(e):
+            st.error("Invalid API Key. Please check your API key and try again.")
+        else:
+            st.error(f"An error occurred: {e}")
+        return None
 
-st.title("Sahayta: Provide a Helping Hand")
-st.subheader("Let's Test the utilities")
+def draw_bounding_box(image, predictions):
+    draw = ImageDraw.Draw(image)
+    for prediction in predictions:
+        x = prediction['x']
+        y = prediction['y']
+        width = prediction['width']
+        height = prediction['height']
+        draw.rectangle([x, y, x+width, y+height], outline="red", width=3)
+        draw.text((x, y), prediction['class'], fill="red")
 
-with open('./assets/wildfires.jpg', "rb") as f:
-    data = f.read()
-    encoded = base64.b64encode(data)
-data = "data:image/png;base64," + encoded.decode("utf-8")
+def main():
+  st.set_page_config(page_title="Sahayta", page_icon="🤝")
 
-hasClicked = card(
-  title="Test Wildfires",
-  text="Some description",
-  image=data,
-  on_click=lambda: print("Clicked!")
-)
+  st.title("Sahayta: Help the Helping Hands 🤝")
+  st.subheader("Let's Test the Victim Detection Model")
+
+  api_key = st.text_input("Enter API Key")
+  uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
+  if uploaded_file is not None:
+     if api_key is not None:
+         image = Image.open(uploaded_file)
+         predictions=detectVictim(api_key,image)
+         if predictions:
+          draw_bounding_box(image, predictions)
+          st.image(image, caption='Processed Image', use_column_width=True)
+     else:
+        st.error("Add Valid Roboflow API Key")
+
+if __name__ == "__main__":
+    main()
+
