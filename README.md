@@ -24,7 +24,14 @@ results in detectFloodVictims/runs/detect/train
 
 ## Getting Started
 To use the disaster relief and response solution, follow these steps:
+# Use deployed app to check Flood Victim Detection model: https://sahayta.streamlit.app/
+UI:
+![image](https://github.com/MonaTheDon/Sahayta/assets/104318895/8f705083-6928-4c5a-b0da-87b5d68a560f)
 
+Results:
+![image](https://github.com/MonaTheDon/Sahayta/assets/104318895/5c1f10d1-6f68-4866-836b-6e1cb85f6492)
+
+# Run it in your local machine:
 1. Clone the repository to your local machine: `git clone https://github.com/your-username/disaster-relief-solution.git`
 2. Install the necessary dependencies and libraries as specified in the documentation.
 3. Install requirements for streamlit app
