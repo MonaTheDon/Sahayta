@@ -67,7 +67,7 @@ def main():
   api_key = st.text_input("Enter API Key", type='password')
   uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
   size = (640,640)
-  uploaded_file = ImageOps.fit(image, size)
+  uploaded_file = ImageOps.fit(uploaded_file, size)
   if uploaded_file is not None:
      if api_key is not None:
          image = Image.open(uploaded_file)
