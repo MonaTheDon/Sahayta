@@ -57,7 +57,7 @@ def draw_bounding_box(image, predictions):
         draw.text((x, y), prediction['class'], fill="yellow")
 
 def main():
-  st.set_page_config(page_title="Sahayta", page_icon="🤝")
+  st.set_page_config(page_title="Sahayta", page_icon="🤝",initial_sidebar_state='expanded')
 
   st.title("Sahayta: Help the Helping Hands 🤝")
   st.subheader("Let's Test the Victim Detection Model")
