@@ -49,8 +49,8 @@ def detectWaterLevel(api_key,image):
 def draw_bounding_box(image, predictions):
     draw = ImageDraw.Draw(image)
     for prediction in predictions:
-        x = prediction['x']
-        y = prediction['y']
+        x = prediction['x']-40
+        y = prediction['y']-120
         width = prediction['width']
         height = prediction['height']
         draw.rectangle([x, y, x+width, y+height], outline="red", width=3)
@@ -59,7 +59,7 @@ def draw_bounding_box(image, predictions):
 def main():
   st.set_page_config(page_title="Sahayta", page_icon="🤝",initial_sidebar_state='expanded')
 
-  st.title("Sahayta: Help the Helping Hands 🤝")
+  st.title("Sahayta: Help the Helping Hands🤝")
   st.subheader("Let's Test the Victim Detection Model")
 
   higherClass=['level 5','level 6', 'level 7', 'level 8', 'level 9', 'level 10', 'level 11', 'level 12']
