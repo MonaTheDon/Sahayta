@@ -43,6 +43,8 @@ Results:
 7. To check Results for Flood Detection and Segmentation and Wildfire detection, Run the provided scripts and modules to execute the solution components, analyze data, and generate insights.
 8. Output images from Flood Segmentation model training is saved in `./Flood_mapping` 
 
+# Youtube Demo
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/EtirOIDTqKU/0.jpg)](https://www.youtube.com/watch?v=EtirOIDTqKU)
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
