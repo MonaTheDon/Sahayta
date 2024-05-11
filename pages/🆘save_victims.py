@@ -3,7 +3,18 @@ import base64
 import supervision as sv
 from inference_sdk import InferenceHTTPClient
 from PIL import Image, ImageDraw, ImageOps
-
+def check_api_key(api_key):
+    try:
+        CLIENT = InferenceHTTPClient(
+            api_url="https://detect.roboflow.com",
+            api_key=api_key
+        )
+        # Send a simple request to the API
+        CLIENT.infer(Image.new('RGB', (640, 640)), model_id="yolo-floods-relief/4")
+    except Exception as e:
+        if "403 Client Error: Forbidden" in str(e):
+            return False
+    return True
 def detectVictim(api_key, image):
     size = (640,640)    
     image = ImageOps.fit(image, size)
@@ -66,7 +77,14 @@ def main():
 
   api_key = st.text_input("Enter API Key", type='password')
   uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
-  
+  if api_key:  # Check if API key is entered
+        if check_api_key(api_key):  # Check if API key is valid
+            # Rest of the code...
+            st.success("API Key is valid! Upload Your Image to Test the Model.")
+        else:
+            st.error("Invalid API Key. Please check your API key and try again.")
+  else:
+        st.error("Please enter a valid Roboflow API Key.")
   if uploaded_file is not None:
      if api_key is not None:
          image = Image.open(uploaded_file)
